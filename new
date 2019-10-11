@@ -1,6 +1,67 @@
 #!/bin/bash
+if [-e/usr/bin/wget ] ;then
+  exit -;
+  fi
 yum -y install wget
 https://raw.githubusercontent.com/Bkoul26/NTI300/master/packages.txt
 for packages in $(cat packages.txt); do
   yum -y install $packages
   done
+
+
+myvar = " "
+if [-n $1]; then
+  exit 0
+ fi
+varname=$(systemctl status httpd | grep Active | awk '{print 2}');
+varname2 = "inactive"; 
+if {$varname == $varname2}; then 
+   echo "noooo";
+   fi
+echo $varname
+echo $varname2
+
+if [-z " $1"]; then
+echo "you didn't provide an argument"
+  exit 0;
+ fi
+varname=$(systemctl status $1 | grep Active | awk '{print 2}')
+varname2 = "inactive"
+if [$varname == $varname2]; then
+   echo "noooo"
+   fi
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+~                                                                                                                  
+"test_status.sh" 11L, 225C                                                                       4,1           All
+
+
