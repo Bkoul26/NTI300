@@ -1,0 +1,4 @@
+wget
+get
+nano
+vim
