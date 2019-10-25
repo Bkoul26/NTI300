@@ -1,0 +1,25 @@
+#!/bin/bash
+if [ -z "$1"];then
+        echo "Look for package?"
+        exit 0;
+fi
+installed=$(yum list installed $1 | grep $1 | awk -F. '{print $1}')
+input= "$1"
+if [$installed == $input];then
+        echo "This package/service is already installed"
+else
+        echo "Package is not installed" 
+        echo "Would you like to install $input? y for yes n for no"
+exit 0;
+fi
+while true; do
+read -p "Do you wish to install this program? $input?" yn
+        case $yn in     #or select yn in "Yes" "No"; do
+        [Yy]* ) $(yum install -y $1); break;;
+        [Nn]* ) exit;
+    * ) echo "quitTing";;
+                esac
+done
+
+exit 0;
+fi
