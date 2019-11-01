@@ -1,17 +1,3 @@
-#!/usr/bin/python
-import os
-import re
-import subprocess
-
-def setup_install():
-    print('Installing pip and virtualenv so we can give DJANGO its own version of Python')
-    os.system('yum -y install python-pip && pip install --upgrade pip')
-    os.system('pip install virtualenv')
-    os.chdir('/opt')
-    os.mkdir('/opt/django')
-    os.system('virtualenv django-env')
-    os.system('adduser -M django && usermod -L django')
-#chown doesnt work as well
 def django_install():
     print('Activating virtualenv and isntall django after pre-requirements have been met')
     os.system('source /opt/django/django-env/bin/activate && pip isntall django')
@@ -26,7 +12,7 @@ def django_start():
     os.system('chown -R bogdankoul /opt/django')
     os.chdir('/opt/django/project1')
     os.system('source /opt/django/django-env/bin/activate' +\
-              '&& python manag.py migrate')
+              '&& python manage.py migrate')
 
     os.system('source /opt/django/django-env/bin/activate && echo "from django.contrib.auth import get_user_model; User = get_user_model();User.objects.create_superuser(\'admin\',\'admin@newproject.com\',\'NTI300NTI300\')" | python manage.py shell')
 
