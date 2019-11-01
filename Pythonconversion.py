@@ -1,25 +1,25 @@
 #!/usr/bin/python
-
 import os
 import re
 import subprocess
 
-def setup_install(0):
+def setup_install():
     print('Installing pip and virtualenv so we can give DJANGO its own version of Python')
     os.system('yum -y install python-pip && pip install --upgrade pip')
     os.system('pip install virtualenv')
     os.chdir('/opt')
     os.mkdir('/opt/django')
     os.system('virtualenv django-env')
-    os.system('chown -R bogdankoul /opt/django')
+    os.system('adduser -M django && usermod -L django')
 #chown doesnt work as well
 def django_install():
     print('Activating virtualenv and isntall django after pre-requirements have been met')
     os.system('source /opt/django/django-env/bin/activate && pip isntall django')
     os.chdir('/opt/django')
     os.system('source /opt/django/django-env/bin/activate ' + \
-              '&& django-admon --version' +\
-              '&& djang0-admin startproject project1')
+              '&& django-admin --version' +\
+              '&& django-admin startproject project1'+\
+              '&& chown -R django /opt/django')
 
 def django_start():
     print('starting django')
@@ -31,7 +31,7 @@ def django_start():
     os.system('source /opt/django/django-env/bin/activate && echo "from django.contrib.auth import get_user_model; User = get_user_model();User.objects.create_superuser(\'admin\',\'admin@newproject.com\',\'NTI300NTI300\')" | python manage.py shell')
 
     outputwithnewline = subprocess.check_output('curl -s checkip.dyndns.org | sed -e \'s/.*Current IP Address: //\' -e \'s/<.*$//\' ', shell=TRUE)
-    print ouputwithnewline
+    print ('ouputwithnewline')
     output = outputwithnewline.replace("\n", "")
     old_string = "ALLOWED_HOSTS = []"
     new_string = 'ALLOWED_HOSTS = [\'{}\']'.format(output)
@@ -48,3 +48,7 @@ def django_start():
 setup_install()
 django_install()
 django_start()
+#adduser -M django
+#chown -R django /opt/django
+#usermod -L django
+#sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
