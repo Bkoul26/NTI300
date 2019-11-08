@@ -29,7 +29,7 @@ def create_instance(compute,project,zone,name):
  #next up
  config = {
   'name' : name,
-  'machineType' == machine_type,
+  'machineType' : machine_type,
   # Specify the boot disk and image 
   'disks': [
     {
