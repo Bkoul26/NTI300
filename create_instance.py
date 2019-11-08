@@ -26,11 +26,11 @@ def create_instance(compute,project,zone,name):
  
  source_disk_image = image_response['selfLink']
  machine_type = "zones/%s/machineTypes/f1-micro" % zone
- 
+ #next up
  config = {
   'name' : name,
-  'machineType' = machine_type,
-  # Specify the boot disk and image to use as a source.
+  'machineType' == machine_type,
+  # Specify the boot disk and image 
   'disks': [
     {
       'boot': True,
