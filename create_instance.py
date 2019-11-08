@@ -1,7 +1,5 @@
 #!/usr/bin/python
-
-# This should be run from the Google cloud shell
-# django-py must be in the same directory
+#Google cloud assignment
 
 from oauth2client.client import GoogleCredentials
 from googleapiclient import discovery
@@ -41,10 +39,10 @@ def create_instance(compute,project,zone,name):
     }
   ],
   
-  # Specify a network interface with NAT to access the public internet.
+
   'networkInterfaces': [{
     'network': 'global/networks/default',
-    'accessConfigs': [
+    'accessConfigs': [   # Specify a network interface with NAT adapter
       {'type': 'ONE_TO_ONE_NAT', 'name': 'External NAT'}
     ]
   }],
@@ -71,13 +69,13 @@ def create_instance(compute,project,zone,name):
     ]
   },
   
-  # Metadata is readable from the instances and allows you to pass configuration from deployment scripts to instances.
+  
   'metadata': {
-    'items': [{
-      # Startup scrip is automatically executed by the instance up startup.
+    'items': [{# Metadata is being read from instances
+      
       'key': 'startup-script',
       'value': startup_script
-    }]
+    }] # Startup script is auto execute by this instance and automated
   }
  }
  
