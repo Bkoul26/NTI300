@@ -30,13 +30,13 @@ def create_instance(compute,project,zone,name):
  config = {
   'name' : name,
   'machineType' : machine_type,
-  # Specify the boot disk and image 
+  
   'disks': [
     {
       'boot': True,
       'autoDelete': True,
       'initializeParams': {
-        'sourceImage': source_disk_image,
+        'sourceImage': source_disk_image, # Specify the boot disk and image 
       }
     }
   ],
