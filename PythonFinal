@@ -14,7 +14,7 @@ def setup_install():
         os.system('virtualenv django-env')
         os.system('chown -R bogdankoul /opt/django')
 def django_install():
-        print('Activating virtualenv and isntall django after pre-requirements have been met')
+        print('Activating virtualenv and install django after pre-requirements have been met')
         os.system('source /opt/django/django-env/bin/activate && pip isntall django')
         os.chdir('/opt/django') 
         os.system('source /opt/django/django-env/bin/activate ' + \
