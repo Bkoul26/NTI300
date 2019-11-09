@@ -31,12 +31,12 @@ def django_start():
     '&& python manage.py migrate')
   os.system('source /opt/django/django-env/bin/activate && echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser(\'admin\',\'admin@project1.com\',\'NTI300NTI300\') | python manage.py shell')
   outputwithnewline = subprocess.check_output('curl -s checkip.dyndns.org | sed -e \'s/.*Current IP Address: //\' -e \'s/<.*$//\'', shell=True)
-  print outputwithnewline
+  print (outputwithnewline)
   output = outputwithnewline.replace("\n","")
   old_string = 'ALLOWED_HOSTS = []'
   new_string = 'ALLOWED_HOSTS = [\'{}\']'.format(output)
-  print old_string
-  print new_string
+  print (old_string)
+  print (new_string)
   with open('project1/settings.py') as f: newText=f.read().replace(old_string, new_string)
   with open('project1/settings.py', "w") as f: f.write(newText)
   f.close()
