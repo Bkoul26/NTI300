@@ -1,9 +1,11 @@
 #!/usr/bin/python
 #Google cloud assignment
-
+#Bogdan Koul 
+#11/07/2019
+#Start proj
 from oauth2client.client import GoogleCredentials
 from googleapiclient import discovery
-import pprint
+import pprint # important to import the library
 import json
 
 credentials = GoogleCredentials.get_application_default()
@@ -47,7 +49,7 @@ def create_instance(compute,project,zone,name):
     ]
   }],
   
-  # Allow the instance to access cloud storage and logging.
+  # Give our instance access to the g cloud storage and auth.
   'serviceAccounts': [{
     'email': 'default',
     'scopes': [
@@ -56,13 +58,12 @@ def create_instance(compute,project,zone,name):
     ]
   }],
   
-  # Enablle http/https for select instances
-  "labels": {
+  "labels": {     # Enablle http/https 
     "http-server": "",
     "https-server": ""
   },
   
-  "tags": {
+  "tags": { #tags are crucial
     "items": [
       "http-server",
       "https-server"
@@ -71,11 +72,11 @@ def create_instance(compute,project,zone,name):
   
   
   'metadata': {
-    'items': [{# Metadata is being read from instances
+    'items': [{# Metadata is being read from instances ^^
       
       'key': 'startup-script',
       'value': startup_script
-    }] # Startup script is auto execute by this instance and automated
+    }] # Startup script is auto executingg by this instance and is being automated
   }
  }
  
@@ -89,3 +90,4 @@ instances = list_instances(compute,project,zone)
 
 pprint.pprint(newinstance)
 pprint.pprint(instances)
+#end main()
