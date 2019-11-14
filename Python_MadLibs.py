@@ -1,5 +1,5 @@
 #Bogdan Koul
-#11/12/2019
+#11/09/2019
 #NTI 300
 #Start
 #!/usr/bin/python
@@ -11,7 +11,7 @@ madLibs = open("..\\MadLibs.txt")
 content = madLibs.read()
 madLibs.close()
 check = re.compile(r'ADJECTIVE|NOUN|VERB|ADVERB')
-# While Loop to check & go thhrough the words needed to change
+# While Loop to check & go through the words needed to change
 while True:
     result = check.search(content)
     if result == None:
