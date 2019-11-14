@@ -29,3 +29,4 @@ name = input()
 newFile = open("..\\%s.txt" % (name), "w")
 newFile.write(content)
 #end()
+#create new file error
