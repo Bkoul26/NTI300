@@ -5,6 +5,16 @@
 import os
 import subprocess
 
+def local_repo():
+    repo="[local-epel]
+name=NTI300 EPEL
+baseurl=http://35.192.184.169/epel/
+gpgcheck=0
+enabled=1"
+    with open('/etc/yum,repos.d/') as f: 
+    newText=f.read().replace(old_string, new_string)
+    f.close()
+  
 def setup_install():
   print('Installing pip and virtualenv so we can give django its own version of python')
   os.system('yum -y install python-pip && pip install --upgrade pip')
@@ -37,8 +47,10 @@ def django_start():
   new_string = 'ALLOWED_HOSTS = [\'{}\']'.format(output)
   print (old_string)
   print (new_string)
-  with open('project1/settings.py') as f: newText=f.read().replace(old_string, new_string)
-  with open('project1/settings.py', "w") as f: f.write(newText)
+  with open('project1/settings.py') as f: 
+  newText=f.read().replace(old_string, new_string)
+  with open('project1/settings.py', "w") as f: 
+  f.write(newText)
   f.close()
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
 #call functions
