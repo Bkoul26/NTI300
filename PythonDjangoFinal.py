@@ -21,7 +21,7 @@ def setup_install():
 def local_repo():
     repo="""[local-epel]
       name=NTI300 EPEL
-      baseurl=http://104.198.248.166//epel/
+      baseurl=http://35.192.184.169///epel/
       gpgcheck=0
       enabled=1"""
     print(repo)
