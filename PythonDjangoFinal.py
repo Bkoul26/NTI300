@@ -1,8 +1,7 @@
 #!/usr/bin/python 
-#edited 11/09/2019 / 
-#start
-#first import all libraries
-#!/usr/bin/python
+#edited 11/15/2019 /// 
+#start//
+#first import all librari/es
 #!/usr/bin/python
 
 import os
