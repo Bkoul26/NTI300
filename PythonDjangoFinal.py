@@ -25,7 +25,7 @@ def local_repo():
       gpgcheck=0
       enabled=1"""
     print(repo)
-    with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
+    with open('/etc/yum.repos.d/local-repo.repo',"w+") as f:
       f.write(repo)
     f.close()
     on="enabled=1"
