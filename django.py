@@ -20,7 +20,7 @@ def setup_install():
 def local_repo():
     repo="""[local-epel]
 Name=NTI300 EPEL
-baseurl=http://35.192.184.169/
+baseurl=http://35.192.184.169/epel/
 gpgcheck=0
 enabled=1"""
     os.system('for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done')
