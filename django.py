@@ -17,12 +17,13 @@ def setup_install():
   os.system('virtualenv django-env')
   os.system('adduser -M django && usermod -L django')
 
-def local_repo():
+ddef local_repo():
     repo="""[local-epel]
 Name=NTI300 EPEL
-baseurl=http://35.192.184.169///epel/
+baseurl=http://35.192.184.169/
 gpgcheck=0
 enabled=1"""
+    os.system('for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done')
     print(repo)
     with open('/etc/yum.repos.d/local-repo.repo',"w+") as f:
       f.write(repo)
