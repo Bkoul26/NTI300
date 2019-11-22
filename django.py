@@ -19,10 +19,10 @@ def setup_install():
 
 def local_repo():
     repo="""[local-epel]
-      name=NTI300 EPEL
-      baseurl=http://35.192.184.169///epel/
-      gpgcheck=0
-      enabled=1"""
+Name=NTI300 EPEL
+baseurl=http://35.192.184.169///epel/
+gpgcheck=0
+enabled=1"""
     print(repo)
     with open('/etc/yum.repos.d/local-repo.repo',"w+") as f:
       f.write(repo)
@@ -30,10 +30,10 @@ def local_repo():
     on="enabled=1"
     off="enabled=0"
     with open('/etc/yum.repos.d/epel.repo') as f:
-      dissablerepo=f.read().replace(on, off)
+      disablerepo=f.read().replace(on, off)
     f.close()
     with open('/etc/yum.repos.d/epel.repo', "w") as f:
-      f.write(dissablerepo)
+      f.write(disablerepo)
     f.close()
 
 def django_install():
