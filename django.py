@@ -17,7 +17,7 @@ def setup_install():
   os.system('virtualenv django-env')
   os.system('adduser -M django && usermod -L django')
 
-ddef local_repo():
+def local_repo():
     repo="""[local-epel]
 Name=NTI300 EPEL
 baseurl=http://35.192.184.169/
