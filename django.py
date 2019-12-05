@@ -1,3 +1,5 @@
+#bogdan django.py
+
 #!/usr/bin/python
 
 import os
