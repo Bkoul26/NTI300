@@ -1,18 +1,19 @@
 #!/usr/bin/python
 
+
 import os
 import re
 import subprocess
 
-
+#make sure spacing is correct (error line 17)/ bypassed
 def local_repo():
     repo="""[local-epel]
 name=NTI300 EPEL
-baseurl=http://34.67.231.165/epel/
+baseurl=http://34.67.231.165/epel/                    
 gpgcheck=0
 enabled=1"""
     os.system('for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done')
-    print(repo)
+    print(repo)#bypass error success
     with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
       f.write(repo)
     f.close()
@@ -30,9 +31,8 @@ def setup_install():
 
 def django_install():
     print('activating virtualenv and installing django after pre-requirements have been met')
-    # You must activate the virtualenv shell every time you perform a command in order for it to work from python
     os.system('source /opt/django/django-env/bin/activate && pip install django')
-    # Confirm install and start a django project
+    # run to ensure installatiion
     os.chdir('/opt/django')
     os.system('source /opt/django/django-env/bin/activate ' + \
               '&& django-admin --version ' + \
