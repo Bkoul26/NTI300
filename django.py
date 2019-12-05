@@ -8,7 +8,7 @@ import subprocess
 def local_repo():
     repo="""[local-epel]
 name=NTI300 EPEL
-baseurl=http://35.222.109.172/epel/
+baseurl=http://34.67.231.165/epel/
 gpgcheck=0
 enabled=1"""
     os.system('for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done')
