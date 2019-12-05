@@ -39,7 +39,7 @@ def create_instance(compute, project, zone, name):
 			}
 		],
 
-		# Specify a network interface with NAT intfce 
+		# Declare network with NAT intfce 
 		
 		'networkInterfaces': [{
 			'network': 'global/networks/default',
@@ -57,7 +57,7 @@ def create_instance(compute, project, zone, name):
 			]
 		}],
 
-		# Enable https/http
+		# Enable https/http//
 		"labels": {
 		"http-server": "",
 		"https-server": ""
@@ -69,12 +69,9 @@ def create_instance(compute, project, zone, name):
 		"https-server"
 		]
 		},
-
-		# Metadata is readable from the instance and allows you to
 		
 		'metadata': {
 			'items': [{
-			# Startup script is automatically executed by the
 			
 			'key': 'startup-script',
 			'value': startup_script
