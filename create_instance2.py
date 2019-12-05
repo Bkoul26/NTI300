@@ -1,10 +1,4 @@
-#bogdan create_instance.py
-
 #!/usr/bin/python
-#Google cloud assignment
-#Bogdan Koul 
-#11/07/2019
-#Start proj
 
 from oauth2client.client import GoogleCredentials
 from googleapiclient import discovery
@@ -34,7 +28,7 @@ def create_instance(compute, project, zone, name):
 		'name': name,
 		'machineType': machine_type,
 
-		# Specify the boot disk and the image to use as a source.
+		
 		'disks': [
 			{
 				'boot': True,
@@ -45,8 +39,8 @@ def create_instance(compute, project, zone, name):
 			}
 		],
 
-		# Specify a network interface with NAT to access the pubilc 
-		# internet
+		# Specify a network interface with NAT intfce 
+		
 		'networkInterfaces': [{
 			'network': 'global/networks/default',
 			'accessConfigs': [
@@ -54,7 +48,7 @@ def create_instance(compute, project, zone, name):
 			]
 		}],
 
-		#Allow the instance to access cloud storage and logging.
+		
 		'serviceAccounts': [{
 			'email': 'default',
 			'scopes': [
@@ -63,7 +57,7 @@ def create_instance(compute, project, zone, name):
 			]
 		}],
 
-		# Enable https/http for select instances
+		# Enable https/http
 		"labels": {
 		"http-server": "",
 		"https-server": ""
@@ -77,11 +71,11 @@ def create_instance(compute, project, zone, name):
 		},
 
 		# Metadata is readable from the instance and allows you to
-		# pass configuration from deployment scripts to instances
+		
 		'metadata': {
 			'items': [{
 			# Startup script is automatically executed by the
-			# instance upon startup.
+			
 			'key': 'startup-script',
 			'value': startup_script
 			}]
