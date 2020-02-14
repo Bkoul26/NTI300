@@ -62,13 +62,13 @@ chmod 0600 /root/ldap_admin_pass #only root can read & write
 
 echo -e "dn: olcDatabase={2}hdb,cn=config
 changetype: modify
-replace: olcSuffix          
+replace: olcSuffix
 olcSuffix: dc=NTI310,dc=local
 \n
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootDN
-olcRootDN: cn=ldapadm,dc=NTI310,dc=local
+olcRootDN: cn=ldapadm,dc=nti310,dc=local
 \n
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
